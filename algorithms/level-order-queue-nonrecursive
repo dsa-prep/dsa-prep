@@ -1,0 +1,27 @@
+levelOrderTraversal(tree)
+  # according to exercise text: using a queue, not using recursion
+  queue q
+  n = tree.root
+  while (n != null):
+      visit(n)
+      q.enqueue(n.left)
+      q.enqueue(n.right)
+      n = q.dequeue()
+
+
+# Explain how your algorithm can be adapted to an algorithm for breadth-first search (BFS) through a graph.
+
+The algo is already breadth-first. To implement search with it, all we need to do is check values as we traverse.
+
+breadthFirstSearch(tree,needle)
+  queue q
+  n = tree.root
+  while (n != null):
+      if n.data==needle: return n       #  <---- only changed line
+      q.enqueue(n.left)
+      q.enqueue(n.right)
+      n = q.dequeue()
+
+# Give and explain the worst-case time complexity for the algorithm for BFS, assuming that the input-graph is represented using an adjacency-list.
+
+The worst case occurs when the seeked node is at the bottom right of the tree. In this case, every node is visited before the goal node, giving complexity of tree.numberOfNodes

@@ -1,0 +1,17 @@
+class stack:
+
+  queue q1, q2
+
+  def swap():
+    temp = q1
+    q1 = q2
+    q2 = temp
+
+  def push(e):
+    q2.enqueue(e)
+    while q1.length>0:
+      q2.enqueue(q1.dequeue())
+    swap()
+
+  def pop(e):
+    return q1.dequeue()

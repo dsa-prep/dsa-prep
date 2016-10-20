@@ -1,0 +1,12 @@
+class queue:
+
+	stack s1, s2
+
+	def enqueue(e):
+    s1.push(e)
+    
+	def dequeue():
+		if s2.length == 0:
+      while s1.length > 0:
+        s2.push(s1.pop)
+		return s2.pop()
